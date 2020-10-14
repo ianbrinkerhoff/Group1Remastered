@@ -3,4 +3,170 @@
 @{
 }
 
+    <h1></h1>
+
 <h1>Play Game</h1>
+
+<h1>Welcome to the typing game!</h1>
+<center><div class="timer" id="timer"></div></center>
+<div id="demo"></div>
+<br />
+
+<div class="row">
+    <!--Player1-->
+    <div class="column" style=" background-color: #d64161;">
+        <button id="P1ready" onclick="changeText(this)">Ready?</button>
+        <form id="player1input" action="/action_page.php" style="visibility:hidden;">
+            <label for="word1">Word 1:</label>
+            <input type="text" id="word" name="word"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <!--Player2-->
+    <div class="column" style=" background-color: #ff7b25;">
+        <button id="P2ready" onclick="changeText(this)">Ready?</button>
+        <form id="player2input" action="/action_page.php" style="visibility:hidden;">
+            <label for="word1">Word 1:</label>
+            <input type="text" id="word1" name="word1"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+        var ready = 0;
+        var placeholderDB = ["refrigerator", "microwave", "oven", "dishwasher", "stovetop", "coffee"];
+
+        const quoteDisplayElement = document.getElementById('demo');
+        const quoteInputElement = document.getElementById('word');
+        const timerElement = document.getElementById('timer');
+
+        function changeText(id) {
+            id.innerHTML = "Let's Go!";
+            id.disabled = true;
+            ready++;
+            playersReady();
+        }
+
+        function playersReady() {
+            if (ready == 2) {
+                document.getElementById("P1ready").style.visibility = "hidden";
+                document.getElementById("P2ready").style.visibility = "hidden";
+                gameStart();
+            }
+        }
+
+        function gameStart() {
+            document.getElementById("player1input").style.visibility = "visible";
+            document.getElementById("player2input").style.visibility = "visible";
+
+            // get random word from array called placeholderDB
+            var randomWord = placeholderDB[Math.floor(Math.random() * placeholderDB.length)];
+
+            // display for random word
+            for (var i = 0; i < randomWord.length; i++) {
+                $('#demo').append('<button disabled>' + randomWord.charAt(i) + '</button>')
+            }
+
+            // separates the random word and puts each letter in span element
+            randomWord.split('').forEach(character => {
+                const characterSpan = document.createElement('span')
+                characterSpan.classList.add('correct')
+                characterSpan.innerText = character
+                quoteDisplayElement.appendChild(characterSpan)
+            })
+
+            startTimer();
+        }
+
+        // sees users input and compares letters typed to randomWord
+        quoteInputElement.addEventListener('input', () => {
+            const arrayQuote = quoteDisplayElement.querySelectorAll('span')
+            const arrayValue = quoteInputElement.value.split('')
+            arrayQuote.forEach((characterSpan, index) => {
+                const character = arrayValue[index]
+                if (character === characterSpan.innerText) {
+                    characterSpan.classList.add('correct')
+                    characterSpan.classList.remove('incorrect')
+                } else {
+                    characterSpan.classList.remove('correct')
+                    characterSpan.classList.add('incorrect')
+                }
+            })
+        })
+
+        let startTime
+        function startTimer() {
+            timerElement.innerText = 0
+            startTime = new Date()
+            setInterval(() => {
+                timer.innerText = getTimerTime()
+            }, 1000)
+        }
+
+        function getTimerTime() {
+            return Math.floor((new Date() - startTime) / 1000)
+        }
+
+</script>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        text-align: center;
+        background-color: #6b5b95;
+        margin: 0; /* disables scroll */
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Button display for main list of words */
+    #demo button:disabled {
+        background-color: #feb236;
+        border: 1px black solid;
+        margin: 1px 1px 1px 1px;
+        width: 50px;
+        height: 50px;
+        color: black;
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #timer {
+        background-color: black;
+        width: 150px;
+        margin: 2px 2px 2px 2px;
+        color: #feb236;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .correct {
+        color: green;
+    }
+
+    .incorrect {
+        color: black;
+    }
+
+    footer {
+        background-color: white;
+    }
+</style>

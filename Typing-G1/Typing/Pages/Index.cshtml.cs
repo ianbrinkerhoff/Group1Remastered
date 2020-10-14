@@ -19,6 +19,17 @@ namespace Typing.Pages
 
         public void OnGet()
         {
+            if (UserStatus.loggedIn == true)
+            {
+                UserStatus.loggedIn = true;
+            }
+            else
+            {
+                UserStatus.loggedIn = false;
+                UserStatus.registered = false;
+                UserStatus.currentUser = null;
+            }
+
         }
     }
 }

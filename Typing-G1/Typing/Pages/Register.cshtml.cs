@@ -29,9 +29,10 @@ namespace Typing.Pages
         {
             if (Salt == null)
             {
+                UserStatus.loggedIn = false;
                 string salt = createSalt(16);
                 TempData["Salt"] = salt;
-                Account.UserSalt = "LMzaPagVyqJqxgjC";
+                Account.UserSalt = salt;
             }
         }
 
@@ -49,9 +50,13 @@ namespace Typing.Pages
             //Call function to see if username is taken, return message verifying status of username
             //checkUsername();
 
-                return RedirectToPage("/Register");
+            return RedirectToPage("/Register");
         }
 
+        /// <summary>
+        /// Posts username, hashed password, and unique user salt and updates the database
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnPostTwo()
         {
             string uHash = Request.Form["hashed"].ToString();
@@ -62,6 +67,7 @@ namespace Typing.Pages
             //insertUser();
 
             UserStatus.registered = true;
+            UserStatus.loggedIn = true;
 
             return RedirectToPage("/Game");
         }
