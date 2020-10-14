@@ -456,11 +456,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ian Brinkerhoff\\OneDrive\\WEBER STATE\\FALL 2020\\CS 3750\\Personal\\Typing-G1\\Typing\\Typing.csproj",
+      "projectUniqueName": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
       "projectName": "Typing",
-      "projectPath": "C:\\Users\\Ian Brinkerhoff\\OneDrive\\WEBER STATE\\FALL 2020\\CS 3750\\Personal\\Typing-G1\\Typing\\Typing.csproj",
+      "projectPath": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
       "packagesPath": "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ian Brinkerhoff\\OneDrive\\WEBER STATE\\FALL 2020\\CS 3750\\Personal\\Typing-G1\\Typing\\obj\\",
+      "outputPath": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ian Brinkerhoff\\AppData\\Roaming\\NuGet\\NuGet.Config",

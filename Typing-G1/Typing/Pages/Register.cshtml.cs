@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Cryptography;
 using System.IO;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 /// <summary>
-/// This page will be used to generate salt for users, hash password and store
+/// This page will be used to generate salt for users, and store
 /// UserName, Hashed Password, and User salt in Database
 /// Written by Ian Brinkerhoff - OCT 2020
 /// </summary>
@@ -19,73 +20,62 @@ namespace Typing.Pages
     public class RegisterModel : PageModel
     {
 
-        public string sSalt;
+        public string Salt => (string)TempData[nameof(Salt)];
+        public string Name => (string)TempData[nameof(Name)];
+
+        public string Message => (string)TempData[nameof(Message)];
 
         public void OnGet()
         {
-            //Bool set to false in order to view registration form
-            UserStatus.registered = false;
-            UserStatus.SaltCreated = false;
+            if (Salt == null)
+            {
+                string salt = createSalt(16);
+                TempData["Salt"] = salt;
+                Account.UserSalt = "LMzaPagVyqJqxgjC";
+            }
         }
 
         /// <summary>
         /// Form will not post unless username and 2 passwords are filled out
-        /// Javascript is used to verify that password and confirm password are matched
-        /// before posting the form, we will now generate a salt for each user,
-        /// hash the password and store this data in the DB
+        /// Username is taken from client side to verify that it is unique
         /// </summary>
-        public void OnPost()
+        public IActionResult OnPostSalt()
         {
-            //Bool set to true in order to view "registration complete page"
-            UserStatus.registered = true;
+                //Set UserNames
+                Account.UserName = Request.Form["UserName"].ToString();
+                UserStatus.currentUser = Request.Form["UserName"].ToString();
+                TempData["Name"] = Request.Form["UserName"].ToString();
 
-            //Sets current user
-            UserStatus.currentUser = Request.Form["UserName"];
-            createUser();
+            //Call function to see if username is taken, return message verifying status of username
+            //checkUsername();
+
+                return RedirectToPage("/Register");
         }
 
-        /// <summary>
-        /// Will be used to set attributes of newAccount
-        /// UserName / Password to be hashed / Unique Salt
-        /// </summary>
-        public void createUser()
-        { 
+        public IActionResult OnPostTwo()
+        {
+            string uHash = Request.Form["hashed"].ToString();
+            string uName = Request.Form["uName"].ToString();
+            string uSalt = Request.Form["uSalt"].ToString();
 
-            //Gets username from form
-            Account.UserName = UserStatus.currentUser;
+            //Call function to input hashed password, username, and user salt into database
+            //insertUser();
 
-            //Generates 16 character random char and appends to usersalt
-            if (!UserStatus.SaltCreated)
-            {
-                Account.UserSalt = createSalt();
-                UserStatus.SaltCreated = true;
-                sSalt = Account.UserSalt;
-            }
-            //hashes password and salt to form hashed password
-            Account.HashedPassword = "";
+            UserStatus.registered = true;
+
+            return RedirectToPage("/Game");
         }
 
         /// <summary>
         /// Create salt by generating random char and appending to string
         /// </summary>
         /// <returns>16 character random string</returns>
-        public string createSalt()
+        private static Random random = new Random();
+        public string createSalt(int length)
         {
-            //Instance of random number
-            var rand = new Random();
-
-            //string used to store the salt
-            StringBuilder salt = new StringBuilder();
-
-            //Loop runs 16 times, eachtime generate number from 33-126, 
-            //converts number to char and appends char to salt
-            for (int i = 1; i <= 16; i++)
-            {
-                salt.Append((char)rand.Next(33, 127));
-            }
-
-            return salt.ToString();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-
     }
 }

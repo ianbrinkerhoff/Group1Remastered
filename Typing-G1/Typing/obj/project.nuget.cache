@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3Os8l7Y7GGvn0kOgc6dUkiNnXNx4Juvm5lJpbX0tdxHz+i2f1AjOYW8+VCkvHAICfBE7FoMn41INbMnw4MKQTA==",
+  "dgSpecHash": "al7SOm/CQev7Bpyr0Ghe+6xglODqtQAN/SKTSsEtNvIXpOye6xoUpcYuOlwN68wEwre2fj3Rs2jHPay/5Orhag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ian Brinkerhoff\\OneDrive\\WEBER STATE\\FALL 2020\\CS 3750\\Personal\\Typing-G1\\Typing\\Typing.csproj",
+  "projectFilePath": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

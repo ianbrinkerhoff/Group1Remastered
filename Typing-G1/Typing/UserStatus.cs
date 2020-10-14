@@ -22,9 +22,5 @@ namespace Typing
         /// </summary>
         public static string currentUser { get; set; }
 
-        /// <summary>
-        /// Used to determined if a salt has been created for user
-        /// </summary>
-        public static bool SaltCreated { get; set; }
     }
 }
