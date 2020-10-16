@@ -2,171 +2,193 @@
 @model Typing.Pages.GameModel
 @{
 }
+    <div id="gameScreen">
+        <div class="left" id="p1">
+            <h2>Player 1</h2>
+                <div class="wordBox" style="top:80px"><p id="1">BASEBALL</p></div>
+                <div class="wordBox" style="top:160px"><p id="2">RACECAR</p></div>
+                <div class="wordBox" style="top:240px"><p id="3">CACTUS</p></div> 
+                <div class="wordBox" style="top:320px"><p id="4">SAMURAI</p></div> 
+                <div class="wordBox" style="top:400px"><p id="5">CAT</p></div>
+                <h2 id="finalMsg">Game Over</h2>
 
-    <h1></h1>
+        </div>
 
-<h1>Play Game</h1>
-
-<h1>Welcome to the typing game!</h1>
-<center><div class="timer" id="timer"></div></center>
-<div id="demo"></div>
-<br />
-
-<div class="row">
-    <!--Player1-->
-    <div class="column" style=" background-color: #d64161;">
-        <button id="P1ready" onclick="changeText(this)">Ready?</button>
-        <form id="player1input" action="/action_page.php" style="visibility:hidden;">
-            <label for="word1">Word 1:</label>
-            <input type="text" id="word" name="word"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+        <div class="right" id="p2">
+            <h2>Player 2</h2>
+            <div class="wordBox" style="top:80px"><p id="6">BASEBALL</p></div>
+            <div class="wordBox" style="top:160px"><p id="7">RACECAR</p></div>
+            <div class="wordBox" style="top:240px"><p id="8">CACTUS</p></div>
+            <div class="wordBox" style="top:320px"><p id="9">SAMURAI</p></div>
+            <div class="wordBox" style="top:400px"><p id="10">CAT</p></div>
+        </div>
     </div>
-    <!--Player2-->
-    <div class="column" style=" background-color: #ff7b25;">
-        <button id="P2ready" onclick="changeText(this)">Ready?</button>
-        <form id="player2input" action="/action_page.php" style="visibility:hidden;">
-            <label for="word1">Word 1:</label>
-            <input type="text" id="word1" name="word1"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <script>
-        var ready = 0;
-        var placeholderDB = ["refrigerator", "microwave", "oven", "dishwasher", "stovetop", "coffee"];
 
-        const quoteDisplayElement = document.getElementById('demo');
-        const quoteInputElement = document.getElementById('word');
-        const timerElement = document.getElementById('timer');
+    //PLAYER 1 SIDE USING LOOP
+    $('#p1').click(function () {
 
-        function changeText(id) {
-            id.innerHTML = "Let's Go!";
-            id.disabled = true;
-            ready++;
-            playersReady();
-        }
+        var size = 20;
 
-        function playersReady() {
-            if (ready == 2) {
-                document.getElementById("P1ready").style.visibility = "hidden";
-                document.getElementById("P2ready").style.visibility = "hidden";
-                gameStart();
-            }
-        }
+        var $div = $('#p1'),
+            docHeight = $div.height(),
+            docWidth = $div.width();
 
-        function gameStart() {
-            document.getElementById("player1input").style.visibility = "visible";
-            document.getElementById("player2input").style.visibility = "visible";
 
-            // get random word from array called placeholderDB
-            var randomWord = placeholderDB[Math.floor(Math.random() * placeholderDB.length)];
+        var int = setInterval(function () { 
 
-            // display for random word
-            for (var i = 0; i < randomWord.length; i++) {
-                $('#demo').append('<button disabled>' + randomWord.charAt(i) + '</button>')
-            }
+            size += 20;
 
-            // separates the random word and puts each letter in span element
-            randomWord.split('').forEach(character => {
-                const characterSpan = document.createElement('span')
-                characterSpan.classList.add('correct')
-                characterSpan.innerText = character
-                quoteDisplayElement.appendChild(characterSpan)
-            })
+            $.each($('#p1'), function (i, left) {
+                $('div', left).each(function () {
 
-            startTimer();
-        }
+                    $(this).css({
+                        //'font-size': size + 'px',
+                        'position': 'absolute',
+                        'left': size + 'px'
+                        //'left': Math.floor(Math.random() * (docWidth - 100)) + 1 + 'px',
+                        //'top': Math.floor(Math.random() * (docHeight -100)) + 1 + 'px',
+                    });
+                    if (size < (docWidth / 3)) {
+                        $(this).css({
+                            'color': 'green'
+                        });
+                    } else if (size <= ((docWidth / 3) * 2) - 50) {
+                        $(this).css({
+                            'color': 'orange'
+                        });
+                    } else if (size <= (docWidth - 100)) {
+                        $(this).css({
+                            'color': 'red'
+                        });
+                    } else {
+                        clearInterval(int);
+                        $(this).css({
+                            'font-weight': 'bold',
+                            'font-size': '30px'
+                        });
+                        $('#finalMsg').css({
+                            'visibility': 'visible',
+                            'left': (docWidth / 2) + 'px',
+                            'top': (docHeight / 2) + 'px'
+                        });
+                    }
+                    
+                })  
+            });
 
-        // sees users input and compares letters typed to randomWord
-        quoteInputElement.addEventListener('input', () => {
-            const arrayQuote = quoteDisplayElement.querySelectorAll('span')
-            const arrayValue = quoteInputElement.value.split('')
-            arrayQuote.forEach((characterSpan, index) => {
-                const character = arrayValue[index]
-                if (character === characterSpan.innerText) {
-                    characterSpan.classList.add('correct')
-                    characterSpan.classList.remove('incorrect')
-                } else {
-                    characterSpan.classList.remove('correct')
-                    characterSpan.classList.add('incorrect')
-                }
-            })
-        })
+        }, 1000);
+    });
 
-        let startTime
-        function startTimer() {
-            timerElement.innerText = 0
-            startTime = new Date()
-            setInterval(() => {
-                timer.innerText = getTimerTime()
-            }, 1000)
-        }
+//PLAYER 2 SIDE USING ANIMATE
+    $('#p1').click(function () {
 
-        function getTimerTime() {
-            return Math.floor((new Date() - startTime) / 1000)
-        }
+        var $div = $('#gameScreen'),
+            fullWidth = $div.width(),
+            num = 0;
+
+        var color = setInterval(function () {
+            num++;
+            $.each($('#p2'), function (i, left) {
+                $('div', left).each(function () {
+                    if (num == 1) {
+                        $(this).css({
+                            'color': 'orange'
+                        });
+                    } else if (num == 2) {
+                        $(this).css({
+                            'color': 'red'
+                        });
+                        clearInterval(color);
+                    }
+                });
+            }) 
+        }, 6666);
+
+       
+        $.each($('#p2'), function (i, left) {
+            $('div', left).each(function () {
+                $(this).css({
+                    'position': 'absolute'
+                });
+
+                $(this).animate({ left: (fullWidth - 100) + 'px' }, 20000);
+
+            });
+        })  
+    });
 
 </script>
 
 <style>
-    * {
-        box-sizing: border-box;
+
+    /* Control the left side */
+    .left {
+        width: 50%;
+        float: left;
+        background-color: whitesmoke;
+        min-height: 100%;
+        margin:0;
+    }
+
+    /* Control the right side */
+    .right {
+        width: 50%;
+        float: right;
+        background-color: lightgray;
+        min-height: 100%;
+        margin: 0;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
     }
 
     body {
-        text-align: center;
-        background-color: #6b5b95;
-        margin: 0; /* disables scroll */
-    }
-
-    /* Create two equal columns that floats next to each other */
-    .column {
-        float: left;
-        width: 50%;
-        padding: 10px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /* Button display for main list of words */
-    #demo button:disabled {
-        background-color: #feb236;
-        border: 1px black solid;
-        margin: 1px 1px 1px 1px;
-        width: 50px;
-        height: 50px;
-        color: black;
-        font-size: 25px;
-        font-weight: bold;
-    }
-
-    #timer {
-        background-color: black;
-        width: 150px;
-        margin: 2px 2px 2px 2px;
-        color: #feb236;
-        font-weight: bold;
-        font-size: 2rem;
-    }
-
-    .correct {
-        color: green;
-    }
-
-    .incorrect {
-        color: black;
-    }
-
-    footer {
         background-color: white;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
+
+    header {
+        display: block;
+        width: 100%;
+        height: 54px;
+    }
+
+    #gameScreen {
+        border: 1px black solid;
+        width: 100%;
+        position: absolute;
+        top: 54px;
+        bottom: 60px;
+        left: 0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .wordBox{
+        height: 50px;
+        width: 100px;
+        margin: 5px;
+        color:green;
+    }
+
+    #finalMsg{
+        visibility:collapse;
+    }
+
+    p{
+        text-align:center;
+        margin:auto;
+    }
+
 </style>

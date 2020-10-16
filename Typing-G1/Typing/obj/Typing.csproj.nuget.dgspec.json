@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {}
+    "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {}
   },
   "projects": {
-    "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {
+    "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+        "projectUniqueName": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
         "projectName": "Typing",
-        "projectPath": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
-        "packagesPath": "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\",
-        "outputPath": "D:\\Ian Brinkerhoff\\Coding\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
+        "projectPath": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+        "packagesPath": "C:\\Users\\ianbr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Ian Brinkerhoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ianbr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
