@@ -4,23 +4,27 @@
 }
     <div id="gameScreen">
         <div class="left" id="p1">
-            <h2>Player 1</h2>
-                <div class="wordBox" style="top:80px"><p id="1">BASEBALL</p></div>
-                <div class="wordBox" style="top:160px"><p id="2">RACECAR</p></div>
-                <div class="wordBox" style="top:240px"><p id="3">CACTUS</p></div> 
-                <div class="wordBox" style="top:320px"><p id="4">SAMURAI</p></div> 
-                <div class="wordBox" style="top:400px"><p id="5">CAT</p></div>
-                <h2 id="finalMsg">Game Over</h2>
-
+            <h2>P1</h2>
+                <div class="wordBox1 1" style="top:70px"><p id="1"></p></div>
+                <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
+                <div class="wordBox1 3" style="top:230px"><p id="3"></p></div> 
+                <div class="wordBox1 4" style="top:310px"><p id="4"></p></div> 
+                <div class="wordBox1 5" style="top:390px"><p id="5"></p></div>
+                <form id="user1" autocomplete="off">
+                    <input type="text" name="user1" id="tb1" value="" />
+                </form>   
         </div>
 
         <div class="right" id="p2">
-            <h2>Player 2</h2>
-            <div class="wordBox" style="top:80px"><p id="6">BASEBALL</p></div>
-            <div class="wordBox" style="top:160px"><p id="7">RACECAR</p></div>
-            <div class="wordBox" style="top:240px"><p id="8">CACTUS</p></div>
-            <div class="wordBox" style="top:320px"><p id="9">SAMURAI</p></div>
-            <div class="wordBox" style="top:400px"><p id="10">CAT</p></div>
+            <h2>P2</h2>
+            <div class="wordBox 1" style="top:70px"><p id="6"></p></div>
+            <div class="wordBox 2" style="top:150px"><p id="7"></p></div>
+            <div class="wordBox 3" style="top:230px"><p id="8"></p></div>
+            <div class="wordBox 4" style="top:310px"><p id="9"></p></div>
+            <div class="wordBox 5" style="top:390px"><p id="10"></p></div>
+            <form id="user2" autocomplete="off">
+                <input type="text" name="user2" id="tb2" value="" />
+            </form>
         </div>
     </div>
 
@@ -28,60 +32,74 @@
 
 <script>
 
-    //PLAYER 1 SIDE USING LOOP
+    var count = 6;
+    var arr = ["BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING"
+    ];
+
+//on click populate p's with words
+    $('#p1').click(function () {
+        var x = 0;
+        $("p").each(function () {
+            $(this).text(arr[x]);
+            x++;
+            if (x >= 5) {
+                x = 0;
+            }
+        });
+    });
+
+//PLAYER 1 SIDE USING ANIMATE
     $('#p1').click(function () {
 
-        var size = 20;
-
         var $div = $('#p1'),
-            docHeight = $div.height(),
-            docWidth = $div.width();
+            docWidth = $div.width(),
+            num = 0;
+            
 
+        $('#user1').css({
+            'left': (docWidth / 2) - 100 + 'px',
+            'visibility': 'visible'
+        });
 
-        var int = setInterval(function () { 
+        $('#user2').css({
+            'left': ((docWidth / 2) + docWidth) - 100 + 'px',
+            'visibility': 'visible'
+        });
 
-            size += 20;
-
+        var color = setInterval(function () {
+            num++;
             $.each($('#p1'), function (i, left) {
                 $('div', left).each(function () {
-
-                    $(this).css({
-                        //'font-size': size + 'px',
-                        'position': 'absolute',
-                        'left': size + 'px'
-                        //'left': Math.floor(Math.random() * (docWidth - 100)) + 1 + 'px',
-                        //'top': Math.floor(Math.random() * (docHeight -100)) + 1 + 'px',
-                    });
-                    if (size < (docWidth / 3)) {
-                        $(this).css({
-                            'color': 'green'
-                        });
-                    } else if (size <= ((docWidth / 3) * 2) - 50) {
+                    if (num == 1) {
                         $(this).css({
                             'color': 'orange'
                         });
-                    } else if (size <= (docWidth - 100)) {
+                    } else if (num == 2) {
                         $(this).css({
                             'color': 'red'
                         });
-                    } else {
-                        clearInterval(int);
-                        $(this).css({
-                            'font-weight': 'bold',
-                            'font-size': '30px'
-                        });
-                        $('#finalMsg').css({
-                            'visibility': 'visible',
-                            'left': (docWidth / 2) + 'px',
-                            'top': (docHeight / 2) + 'px'
-                        });
+                        clearInterval(color);
                     }
-                    
-                })  
-            });
+                });
+            })
+        }, 6666);
 
-        }, 1000);
+
+        $.each($('#p1'), function (i, left) {
+            $('div', left).each(function () {
+                $(this).css({
+                    'position': 'absolute'
+                });
+
+                $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+
+            });
+        })
     });
+
 
 //PLAYER 2 SIDE USING ANIMATE
     $('#p1').click(function () {
@@ -113,6 +131,7 @@
             $('div', left).each(function () {
                 $(this).css({
                     'position': 'absolute'
+
                 });
 
                 $(this).animate({ left: (fullWidth - 100) + 'px' }, 20000);
@@ -120,6 +139,53 @@
             });
         })  
     });
+
+//When player hits a key, it compares substring to words on players screen
+    $('#tb1').keyup(function () {
+        var substring = $('#tb1').val().toUpperCase();
+        var $div = $('#p1'),
+            docWidth = $div.width()
+        $('.wordBox1').each(function () {
+            var string = $(this).text();
+            if (string == substring) {
+                $('#tb1').val('');
+                $(this).text(arr[count]);
+                count++;
+                $(this).stop(true).css({
+                    "position": "absolute",
+                    "left": "-50px",
+                    "text-align": "right"
+                });
+                if (count < 10) {
+                    $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+                } else if (count < 20) {
+                    $(this).animate({ left: (docWidth - 100) + 'px' }, 17000);
+                } else if (count < 30) {
+                    $(this).animate({ left: (docWidth - 100) + 'px' }, 15000);
+                } else {
+                    $(this).animate({ left: (docWidth - 100) + 'px' }, 13000);
+                }
+            }
+            else if (string.startsWith(substring)) {
+                $(this).html(
+                    '<b>' + string.substr(0, substring.length) + '</b>' + string.substr(substring.length)
+                )
+            } else {
+                $(this).css({
+                    "font-weight": "normal",
+                    "font-size": "16px"
+                });
+            }
+        });
+    });
+
+//Compares substring to everyword in array
+    function arrCompare(substring) {
+        
+
+        return;
+    }
+
 
 </script>
 
@@ -149,6 +215,7 @@
     }
 
     body {
+        overflow:hidden;
         background-color: white;
         margin: 0 auto;
         position: relative;
@@ -172,10 +239,10 @@
     }
 
     h2 {
-        text-align: center;
+        text-align: left;
     }
 
-    .wordBox{
+    .wordBox, .wordBox1{
         height: 50px;
         width: 100px;
         margin: 5px;
@@ -187,8 +254,18 @@
     }
 
     p{
-        text-align:center;
+        text-align:left;
         margin:auto;
+    }
+
+    #p1, #p2{
+        
+    }
+
+    #user1, #user2{
+        position: absolute;
+        bottom:0px;
+        visibility:hidden;
     }
 
 </style>
