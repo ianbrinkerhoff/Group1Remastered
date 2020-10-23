@@ -257,8 +257,6 @@ C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\bin\Debug\netcor
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.csprojAssemblyReference.cache
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.AssemblyInfoInputs.cache
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.AssemblyInfo.cs
-C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.csproj.CoreCompileInputs.cache
-C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorAssemblyInfo.cache
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorAssemblyInfo.cs
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.TagHelpers.input.cache
@@ -284,3 +282,6 @@ C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcor
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.dll
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.pdb
 C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.genruntimeconfig.cache
+C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.csproj.CoreCompileInputs.cache
+C:\Users\ianbr\Desktop\CS3750\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.MvcApplicationPartsAssemblyInfo.cache

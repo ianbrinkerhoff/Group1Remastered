@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3QSsFBZmcC+yF1Uq4mU0zVQ4Fecs+bQCt8ZgSBskEfbq26O/wbEDxw8krPuWMcK+v4+sl30IhdhQIU5689SIjQ==",
+  "dgSpecHash": "KDY8TFkbKX/Ta+E0o3xSMkj0nI576ColoVP5gkEG8kfPHUjfJcTpgpKZio7j5Xl0y+x5/Bb1ZbhNjk5J2Sq0Rg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ianbr\\.nuget\\packages\\microsoft.aspnet.signalr\\2.4.1\\microsoft.aspnet.signalr.2.4.1.nupkg.sha512",
     "C:\\Users\\ianbr\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\ianbr\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
     "C:\\Users\\ianbr\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\3.1.0\\microsoft.aspnetcore.razor.language.3.1.0.nupkg.sha512",
