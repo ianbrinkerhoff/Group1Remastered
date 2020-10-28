@@ -2,21 +2,26 @@
 @model Typing.Pages.GameModel
 @{
 }
-    <div id="gameScreen">
+    <div id="gameScreen">        
         <div class="left" id="p1">
             <h2 id="currentUser">@UserStatus.currentUser</h2>
-                <div class="wordBox1 1" style="top:70px"><p id="1"></p></div>
-                <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
-                <div class="wordBox1 3" style="top:230px"><p id="3"></p></div> 
-                <div class="wordBox1 4" style="top:310px"><p id="4"></p></div> 
-                <div class="wordBox1 5" style="top:390px"><p id="5"></p></div>
-                <form id="user1" autocomplete="off">
-                    <input type="text" name="user1" id="tb1" value="" />
-                </form>   
+            <div id="start" style="z-index:100">
+                <button id="startBtn" class="myButton">Start</button>
+            </div>
+            <div class="wordBox1 1" style="top:70px"><p id="1"></p></div>
+            <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
+            <div class="wordBox1 3" style="top:230px"><p id="3"></p></div>
+            <div class="wordBox1 4" style="top:310px"><p id="4"></p></div>
+            <div class="wordBox1 5" style="top:390px"><p id="5"></p></div>
+            <form id="user1" autocomplete="off">
+                <input type="text" name="user1" id="tb1" value="" />
+            </form>
         </div>
-
         <div class="right" id="p2">
             <h2 id="opponent"></h2>
+            <div id="wait">
+                <h3 id="waiting">Waiting on opponent...</h3>
+            </div>
             <div class="wordBox 1" style="top:70px"><p id="6"></p></div>
             <div class="wordBox 2" style="top:150px"><p id="7"></p></div>
             <div class="wordBox 3" style="top:230px"><p id="8"></p></div>
@@ -42,6 +47,8 @@
 
 
 <script>
+    var numPlayers = 0;
+
     "use strict";
     var p2count = 5;
     var connection = new signalR.HubConnectionBuilder().withUrl("/messageHub").build();
@@ -49,45 +56,50 @@
 
     connection.on("ReceiveMessage", function (username, input) {
         msg = input;
-        $('#opponent').html(username);
-        var substring = msg;
-        var $div = $('#gameScreen'),
-            $half = $('#p2'),
-            docWidth = $div.width(),
-            halfW = $half.width()
+        if (msg == "ready") {
+            numPlayers++;
+            $('#waiting').html('Player Ready!')
+        } else {
+            $('#opponent').html(username);
+            var substring = msg;
+            var $div = $('#gameScreen'),
+                $half = $('#p2'),
+                docWidth = $div.width(),
+                halfW = $half.width()
 
-        $('.wordBox').each(function () {
-            var string = $(this).text();
-            if (string == substring) {
-                $('#tb1').val('');
-                $(this).text(arr[p2count]);
-                p2count++;
-                $(this).stop(true).css({
-                    "position": "absolute",
-                    "left": (docWidth - halfW) - 50 + "px",
-                    "text-align": "right"
-                });
-                if (p2count < 10) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
-                } else if (p2count < 20) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 17000);
-                } else if (p2count < 30) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 15000);
-                } else {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 13000);
+            $('.wordBox').each(function () {
+                var string = $(this).text();
+                if (string == substring) {
+                    $('#tb1').val('');
+                    $(this).text(arr[p2count]);
+                    p2count++;
+                    $(this).stop(true).css({
+                        "position": "absolute",
+                        "left": (docWidth - halfW) - 50 + "px",
+                        "text-align": "right"
+                    });
+                    if (p2count < 10) {
+                        $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+                    } else if (p2count < 20) {
+                        $(this).animate({ left: (docWidth - 100) + 'px' }, 17000);
+                    } else if (p2count < 30) {
+                        $(this).animate({ left: (docWidth - 100) + 'px' }, 15000);
+                    } else {
+                        $(this).animate({ left: (docWidth - 100) + 'px' }, 13000);
+                    }
                 }
-            }
-            else if (string.startsWith(substring)) {
-                $(this).html(
-                    '<b>' + string.substr(0, substring.length) + '</b>' + string.substr(substring.length)
-                )
-            } else {
-                $(this).css({
-                    "font-weight": "normal",
-                    "font-size": "16px"
-                });
-            }
-        });
+                else if (string.startsWith(substring)) {
+                    $(this).html(
+                        '<b>' + string.substr(0, substring.length) + '</b>' + string.substr(substring.length)
+                    )
+                } else {
+                    $(this).css({
+                        "font-weight": "normal",
+                        "font-size": "16px"
+                    });
+                }
+            });
+        }
     });
 
     connection.start().then(function () {
@@ -98,6 +110,16 @@
     $('#tb1').keyup(function () {
         var username = '@UserStatus.currentUser';
         var input = $('#tb1').val().toUpperCase();
+        connection.invoke("SendInput", username, input).catch(function (err) {
+            return console.error(err.toString());
+        });
+    });
+
+    $('#start').click(function () {
+        numPlayers++;
+        $('#start').hide();
+        var username = '@UserStatus.currentUser';
+        var input = 'ready';
         connection.invoke("SendInput", username, input).catch(function (err) {
             return console.error(err.toString());
         });
@@ -120,6 +142,8 @@
             }
         });
     });
+
+    //Register listener for Num Players
 
 //PLAYER 1 SIDE USING ANIMATE
     $('#p1').click(function () {
@@ -260,6 +284,7 @@
         background-color: whitesmoke;
         min-height: 100%;
         margin:0;
+        position:absolute;
     }
 
     /* Control the right side */
@@ -329,5 +354,44 @@
         bottom:0px;
         visibility:hidden;
     }
+
+    #start {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        text-align: center;
+    }
+
+    #wait {
+        position: absolute;
+        left: 65%;
+        top: 40%;
+        text-align: center;
+    }
+
+    .myButton {
+        box-shadow: 0px 0px 0px 2px #9fb4f2;
+        background-color: darkgray;
+        border-radius: 10px;
+        border: 1px solid #4e6096;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Trebuchet MS;
+        font-size: 21px;
+        font-weight: bold;
+        padding: 15px 40px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #283966;
+    }
+
+        .myButton:hover {
+            background-color: #476e9e;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
 
 </style>
