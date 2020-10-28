@@ -11,7 +11,7 @@ namespace Typing.Hubs
     {
         public async Task SendInput(string username, string input)
         {
-            await Clients.All.SendAsync("ReceiveMessage", username, input);
+            await Clients.Others.SendAsync("ReceiveMessage", username, input);
         }
     }
 }
