@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Ian Brinkerhoff\\Coding\\Oct22\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {}
+    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {}
   },
   "projects": {
-    "D:\\Ian Brinkerhoff\\Coding\\Oct22\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {
+    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Ian Brinkerhoff\\Coding\\Oct22\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+        "projectUniqueName": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
         "projectName": "Typing",
-        "projectPath": "D:\\Ian Brinkerhoff\\Coding\\Oct22\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
-        "packagesPath": "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\",
-        "outputPath": "D:\\Ian Brinkerhoff\\Coding\\Oct22\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
+        "projectPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+        "packagesPath": "C:\\Users\\joeys\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ian Brinkerhoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\joeys\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -41,6 +41,20 @@
             "Microsoft.AspNet.SignalR": {
               "target": "Package",
               "version": "[2.4.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -69,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

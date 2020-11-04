@@ -23,38 +23,36 @@
                         </li>
                         @{ if (UserStatus.loggedIn == true)
                             {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Game">Game</a>
-                                </li>
-                            } }
-                    </ul>           
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Game">Game</a>
+                </li>
+ } }
+                    </ul>
                 </div>
             </div>
             <div class="float-right">
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
                     @{ if (UserStatus.loggedIn == false)
                         {
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
-                                </li>
-                            </ul>
-                        }
-                        else
-                        {
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="#">@UserStatus.currentUser</a>
-                                </li>
-                            </ul>
-                            } }
-                    </div>
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-page="/Register">Register</a>
+                </li>
+            </ul> }
+        else
+        {
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Logout</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-page="#">@UserStatus.currentUser</a>
+    </li>
+</ul> } }
+                </div>
             </div>
         </nav>
     </header>
@@ -73,6 +71,13 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=6ohareyy23us649c10pxxlj320tzb2y3ygnmbi412jrumncw"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.js"></script>
+
 
     @RenderSection("Scripts", required: false)
 </body>

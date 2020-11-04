@@ -1,0 +1,8 @@
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\obj\Debug\netstandard2.0\Typing.DataAccess.AssemblyInfoInputs.cache
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\obj\Debug\netstandard2.0\Typing.DataAccess.AssemblyInfo.cs
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\obj\Debug\netstandard2.0\Typing.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\bin\Debug\netstandard2.0\Typing.DataAccess.deps.json
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\bin\Debug\netstandard2.0\Typing.DataAccess.runtimeconfig.json
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\bin\Debug\netstandard2.0\Typing.DataAccess.runtimeconfig.dev.json
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\bin\Debug\netstandard2.0\Typing.DataAccess.dll
+C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.DataAccess\obj\Debug\netstandard2.0\Typing.DataAccess.genruntimeconfig.cache
