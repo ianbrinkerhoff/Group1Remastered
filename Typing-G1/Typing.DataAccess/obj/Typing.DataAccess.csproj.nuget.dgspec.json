@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj": {}
+    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj": {
+    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
         "projectName": "Typing.DataAccess",
-        "projectPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
+        "projectPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
         "packagesPath": "C:\\Users\\joeys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joeys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,16 +38,6 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[3.1.9, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.9, )"
-            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

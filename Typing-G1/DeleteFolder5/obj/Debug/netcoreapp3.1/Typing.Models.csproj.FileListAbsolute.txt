@@ -1,5 +1,0 @@
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netcoreapp3.1\Typing.Models.csprojAssemblyReference.cache
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netcoreapp3.1\Typing.Models.AssemblyInfoInputs.cache
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netcoreapp3.1\Typing.Models.AssemblyInfo.cs
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netcoreapp3.1\Typing.Models.csproj.CoreCompileInputs.cache
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netcoreapp3.1\Typing.Models.MvcApplicationPartsAssemblyInfo.cache

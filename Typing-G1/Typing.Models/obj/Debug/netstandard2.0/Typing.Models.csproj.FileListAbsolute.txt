@@ -1,6 +1,0 @@
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.AssemblyInfoInputs.cache
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.AssemblyInfo.cs
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.csproj.CoreCompileInputs.cache
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\bin\Debug\netstandard2.0\Typing.Models.deps.json
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\bin\Debug\netstandard2.0\Typing.Models.dll
-C:\Users\joeys\source\repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.csprojAssemblyReference.cache

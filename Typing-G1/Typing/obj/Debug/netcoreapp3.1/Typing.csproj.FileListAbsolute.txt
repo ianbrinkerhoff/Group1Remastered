@@ -586,3 +586,4 @@ C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcorea
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\User\Index.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.csprojAssemblyReference.cache
