@@ -12,10 +12,12 @@ namespace Typing.Models
         public int Id { get; set; }
 
         [Display(Name = "Player")]
-        public static string UserName { get; set; }
+        public  string UserName { get; set; }
 
-        public static string HashedPassword { get; set; }
+        public  string HashedPassword { get; set; }
 
-        public static string UserSalt { get; set; }
+        public  string UserSalt { get; set; }
+
+        public  string Score { get; set; }
     }
 }

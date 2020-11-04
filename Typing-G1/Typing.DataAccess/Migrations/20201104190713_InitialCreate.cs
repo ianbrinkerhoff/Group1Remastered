@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Typing.Migrations
+namespace Typing.DataAccess.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -11,7 +11,11 @@ namespace Typing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(nullable: true),
+                    HashedPassword = table.Column<string>(nullable: true),
+                    UserSalt = table.Column<string>(nullable: true),
+                    Score = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

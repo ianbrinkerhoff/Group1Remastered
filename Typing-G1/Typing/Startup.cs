@@ -10,7 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Typing.Hubs;
 using Microsoft.EntityFrameworkCore;
-using Typing.Data;
+using Typing.DataAccess.Data;
+using Typing.DataAccess.Data.Repository.IRepository;
+using Typing.DataAccess.Data.Repository;
 
 namespace Typing
 {
@@ -30,7 +32,15 @@ namespace Typing
             services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext"),
+                    sqlServerOptions => sqlServerOptions.MigrationsAssembly("Typing.DataAccess")));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();//scoping the service 1 time per every client connection
+
+            //uncomment for being able to manipulate whole database localy.
+            //the reason is to use API calls and program things through java on the client base
+            //services.AddMvc(Options => Options.EnableEndpointRouting = false);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +64,11 @@ namespace Typing
 
             app.UseAuthorization();
 
+            //uncomment for being able to manipulate whole database localy.
+            //the reason is to use API calls and program things through java on the client base
+            //app.UseMvc();
+
+            //comment this out to use the Mvc routing 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

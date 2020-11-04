@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Typing", "Typing\Typing.csproj", "{CD46535C-8F05-4FA6-8B95-3057FFE4F389}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82C23C2B-4E0F-4A86-BC95-1DC7652E9A78} = {82C23C2B-4E0F-4A86-BC95-1DC7652E9A78}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typing.DataAccess", "Typing.DataAccess\Typing.DataAccess.csproj", "{82C23C2B-4E0F-4A86-BC95-1DC7652E9A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Typing.Models", "Typing.Models\Typing.Models.csproj", "{DFDF55DF-0D3D-433B-BECD-C40C797B0965}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{82C23C2B-4E0F-4A86-BC95-1DC7652E9A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C23C2B-4E0F-4A86-BC95-1DC7652E9A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82C23C2B-4E0F-4A86-BC95-1DC7652E9A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFDF55DF-0D3D-433B-BECD-C40C797B0965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFDF55DF-0D3D-433B-BECD-C40C797B0965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFDF55DF-0D3D-433B-BECD-C40C797B0965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFDF55DF-0D3D-433B-BECD-C40C797B0965}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
