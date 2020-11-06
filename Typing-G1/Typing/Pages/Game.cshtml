@@ -5,10 +5,9 @@
     <div id="gameScreen">        
         <div class="left" id="p1">
             <h2 id="currentUser">@UserStatus.currentUser</h2>
-            <div id="start" style="z-index:100">
-                <button id="startBtn" class="myButton">Start</button>
-            </div>
-            <div class="wordBox1 1" style="top:70px"><p id="1"></p></div>
+            <h2 id="scoreOne">0</h2>
+            <button id="startBtn" class="myButton">Start</button>
+            <div class="wordBox1 1" style="margin-top: 50px"><p id="1"></p></div>
             <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
             <div class="wordBox1 3" style="top:230px"><p id="3"></p></div>
             <div class="wordBox1 4" style="top:310px"><p id="4"></p></div>
@@ -19,10 +18,9 @@
         </div>
         <div class="right" id="p2">
             <h2 id="opponent"></h2>
-            <div id="wait">
-                <h3 id="waiting">Waiting on opponent...</h3>
-            </div>
-            <div class="wordBox 1" style="top:70px"><p id="6"></p></div>
+            <h2 id="scoreTwo">0</h2>
+            <h3 id="waiting">Waiting on opponent...</h3>
+            <div class="wordBox 1" style="margin-top:50px"><p id="6"></p></div>
             <div class="wordBox 2" style="top:150px"><p id="7"></p></div>
             <div class="wordBox 3" style="top:230px"><p id="8"></p></div>
             <div class="wordBox 4" style="top:310px"><p id="9"></p></div>
@@ -40,34 +38,43 @@
 <script>
     var arr =
     [
-        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "HOCKEY", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
         "BASKETBALL", "MOUSE", "BENCH", "GRAPES", "SOCKS", "RIVER", "ZOO", "DRUM", "LIZARD", "BASKETBALL",
         "CHEESE", "PURSE", "WATER", "EYE", "COMB", "ROCK", "LEMON", "CAMERA", "JELLYFISH", "ORANGE",
         "SWING", "NOSE", "DRAGON", "BUTTERFLY", "FORK", "MOUTH", "HEAD", "MILK", "ARM", "PERSON",
-        "KING", "GIRL", "WORM", "RABBIT", "BRAD", "PETERSON", "BRACELET", "BALLOON", "OWL", "BIRD",
+        "KING", "GIRL", "WORM", "RABBIT", "BRAD", "PETERSON", "EGG", "BALLOON", "OWL", "BIRD",
         "FLY", "FALCON", "BLUE", "GRASS", "SNOWFLAKE", "JAIL", "MOUNTAIN", "TRUCK", "FALL", "HALLOWEEN",
-        "START", "RACE", "TABLE", "IMAGE", "BREAD", "SLIDE", "BRIDGE", "COAT", "SHIRT", "BEAR",
+        "COVER", "RACE", "TABLE", "IMAGE", "BREAD", "SLIDE", "BRIDGE", "COAT", "SHIRT", "BEAR",
         "ANGEL", "SEA", "CLOUD", "WINDOW", "LIPS", "PILLOW", "RAINBOW", "TORNADO", "AIRPLANE", "POLICE",
-        "KEY", "HAMBURGER", "BONE", "MONSTER", "BOW", "ALLIGATOR", "EGG", "ANT", "WHALE", "TURTLE",
+            "KEY", "HAMBURGER", "BONE", "MONSTER", "BOW", "ALLIGATOR", "BRACELET", "ANT", "WHALE", "TURTLE",
         "SWIM", "APPLE", "CARROT", "BOOK", "COIN", "CUPCAKE", "PENCIL", "BOAT", "FINGER", "DOOR"
     ];
 </script>
 
 
 <script>
-    var numPlayers = 0;
 
     "use strict";
     var p2count = 5;
     var connection = new signalR.HubConnectionBuilder().withUrl("/messageHub").build();
-    var msg;
+    var msg,
+        p1Score = 0,
+        p2Score = 0;
 
     connection.on("ReceiveMessage", function (username, input) {
         msg = input;
         if (msg == "ready") {
-            numPlayers++;
-            $('#waiting').html('Player Ready!')
-        } else {
+            $('#waiting').html('Player Ready!');
+            $('#opponent').html(username);
+        }
+        else if (msg == "start") {
+            $('#waiting').hide();
+            $('#opponent').html(username);
+            popP();
+            animateOne();
+            animateTwo();
+        }
+        else {
             $('#opponent').html(username);
             var substring = msg;
             var $div = $('#gameScreen'),
@@ -75,16 +82,19 @@
                 docWidth = $div.width(),
                 halfW = $half.width()
 
+            $('#tb2').val(substring);
+
             $('.wordBox').each(function () {
                 var string = $(this).text();
                 if (string == substring) {
-                    clearBold();
-                    $('#tb1').val('');
+                    p2Score++;
+                    $('#scoreTwo').html(p2Score);
+                    $('#tb2').val('');
                     $(this).text(arr[p2count]);
                     p2count++;
                     $(this).stop(true).css({
                         "position": "absolute",
-                        "left": (docWidth - halfW) - 50 + "px",
+                        "left": (docWidth - halfW) + "px",
                         "text-align": "right"
                     });
                     if (p2count < 10) {
@@ -124,26 +134,31 @@
         });
     });
 
-    $('#start').click(function () {
-        numPlayers++;
-        $('#start').hide();
-        var username = '@UserStatus.currentUser';
-        var input = 'ready';
-        connection.invoke("SendInput", username, input).catch(function (err) {
-            return console.error(err.toString());
-        });
+    $('#startBtn').click(function () {
+        $('#startBtn').hide();
+        if ($('#waiting').text() == 'Player Ready!') {
+            $('#waiting').hide();
+            sendStartMessage();
+            popP();
+            animateOne();
+            animateTwo();
+        } else {
+            var username = '@UserStatus.currentUser';
+            var input = 'ready';
+            connection.invoke("SendInput", username, input).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }
     });
 
-
-    function clearBold() {
-        $.each($('#p1'), function (i, left) {
-            $('div', left).each(function () {
-                    $(this).css({
-                        'font-weight': 'normal'
-                    });
+    function sendStartMessage() {
+        var username = '@UserStatus.currentUser';
+            var input = 'start';
+            connection.invoke("SendInput", username, input).catch(function (err) {
+                return console.error(err.toString());
             });
-        })
     }
+
 
 </script>
 
@@ -153,113 +168,72 @@
     
 
 //on click populate p's with words
-    $('#p1').click(function () {
-        var x = 0;
-        $("p").each(function () {
-            $(this).text(arr[x]);
-            x++;
-            if (x >= 5) {
-                x = 0;
-            }
-        });
-    });
+        function popP() {
+            var x = 0;
+            $("p").each(function () {
+                $(this).text(arr[x]);
+                x++;
+                if (x >= 5) {
+                    x = 0;
+                }
+            });
+        }
 
     //Register listener for Num Players
 
 //PLAYER 1 SIDE USING ANIMATE
-    $('#p1').click(function () {
+        function animateOne() {
+            var $div = $('#p1'),
+                docWidth = $div.width(),
+                num = 0,
+                docHeight = $div.height();
 
-        var $div = $('#p1'),
-            docWidth = $div.width(),
-            num = 0,
-            docHeight = $div.height();
-            
 
-        $('#user1').css({
-            'left': (docWidth / 2) - 100 + 'px',
-            'visibility': 'visible'
-        });
+            $('#user1').css({
+                'left': (docWidth / 2) - 100 + 'px',
+                'visibility': 'visible'
+            });
 
-        $('#user2').css({
-            'left': ((docWidth / 2) + docWidth) - 100 + 'px',
-            'visibility': 'visible'
-        });
+            $('#user2').css({
+                'left': ((docWidth / 2) + docWidth) - 100 + 'px',
+                'visibility': 'visible'
+            });
 
-        var color = setInterval(function () {
-            num++;
             $.each($('#p1'), function (i, left) {
+                var x = 0;
                 $('div', left).each(function () {
-                    if (num == 1) {
-                        $(this).css({
-                            'color': 'black'
-                        });
-                    } else if (num == 2) {
-                        $(this).css({
-                            'color': 'black'
-                        });
-                        clearInterval(color);
-                    }
+                    $(this).css({
+                        'position': 'absolute',
+                        'top': ((docHeight) * (x / 5) + 50) + 'px'
+                    });
+                    x++;
+                    $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+
                 });
             })
-        }, 6666);
-
-        $.each($('#p1'), function (i, left) {
-            var x = 0;
-            $('div', left).each(function () {
-                $(this).css({
-                    'position': 'absolute',
-                    'top': ((docHeight - 75) * (x / 5)) + 'px'
-                });
-                x++;
-                $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
-
-            });
-        })
-    });
-
-
-
-    
+        }
 
 
 //PLAYER 2 SIDE USING ANIMATE
-    $('#p1').click(function () {
+        function animateTwo() {
+            var $div = $('#gameScreen'),
+                fullWidth = $div.width(),
+                docHeight = $div.height(),
+                num = 0;
 
-        var $div = $('#gameScreen'),
-            fullWidth = $div.width(),
-            num = 0;
-
-        //var color = setInterval(function () {
-        //    num++;
-        //    $.each($('#p2'), function (i, left) {
-        //        $('div', left).each(function () {
-        //            if (num == 1) {
-        //                $(this).css({
-        //                    'color': 'orange'
-        //                });
-        //            } else if (num == 2) {
-        //                $(this).css({
-        //                    'color': 'red'
-        //                });
-        //                clearInterval(color);
-        //            }
-        //        });
-        //    }) 
-        //}, 6666);
-
-       
-        $.each($('#p2'), function (i, left) {
-            $('div', left).each(function () {
-                $(this).css({
-                    'position': 'absolute'
+            $.each($('#p2'), function (i, left) {
+                var x2 = 0;
+                $('div', left).each(function () {
+                    $(this).css({
+                        'position': 'absolute',
+                        'top': ((docHeight) * (x2 / 5) + 50) + 'px'
+                    });
+                    x2++;
+                    $(this).animate({ left: (fullWidth - 100) + 'px' }, 20000);
 
                 });
-
-                $(this).animate({ left: (fullWidth - 100) + 'px' }, 20000);
-
-            });
-        })  
-    });
+            })
+        }
 
 //When player hits a key, it compares substring to words on players screen
     $('#tb1').keyup(function () {
@@ -269,6 +243,8 @@
         $('.wordBox1').each(function () {
             var string = $(this).text();
             if (string == substring) {
+                p1Score++;
+                $('#scoreOne').html(p1Score);
                 $('#tb1').val('');
                 $(this).text(arr[p1count]);
                 p1count++;
@@ -358,7 +334,7 @@
 
     .wordBox, .wordBox1{
         height: 50px;
-        width: 100px;
+        width: auto;
         margin: 5px;
         color:black;
     }
@@ -382,17 +358,31 @@
         visibility:hidden;
     }
 
-    #start {
+    #startBtn {
         position: absolute;
         left: 40%;
         top: 40%;
         text-align: center;
     }
 
-    #wait {
+    #waiting {
         position: absolute;
         left: 65%;
         top: 40%;
+        text-align: center;
+    }
+
+    #scoreOne {
+        position: absolute;
+        left: 50%;
+        top: 0%;
+        text-align: center;
+    }
+
+    #scoreTwo {
+        position: absolute;
+        left: 75%;
+        top: 0%;
         text-align: center;
     }
 

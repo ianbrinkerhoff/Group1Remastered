@@ -6498,23 +6498,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ianbr\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+      "projectUniqueName": "D:\\Ian Brinkerhoff\\Coding\\Nov5\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
       "projectName": "Typing",
-      "projectPath": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
-      "packagesPath": "C:\\Users\\ianbr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ianbr\\Desktop\\CS3750\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
+      "projectPath": "D:\\Ian Brinkerhoff\\Coding\\Nov5\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+      "packagesPath": "C:\\Users\\Ian Brinkerhoff\\.nuget\\packages\\",
+      "outputPath": "D:\\Ian Brinkerhoff\\Coding\\Nov5\\Group1Remastered\\Typing-G1\\Typing\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ianbr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ian Brinkerhoff\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6569,7 +6565,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
