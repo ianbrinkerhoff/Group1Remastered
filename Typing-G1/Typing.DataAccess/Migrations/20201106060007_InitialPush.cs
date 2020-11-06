@@ -2,7 +2,7 @@
 
 namespace Typing.DataAccess.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialPush : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace Typing.DataAccess.Migrations
                     UserName = table.Column<string>(nullable: true),
                     HashedPassword = table.Column<string>(nullable: true),
                     UserSalt = table.Column<string>(nullable: true),
-                    Score = table.Column<string>(nullable: true)
+                    Score = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

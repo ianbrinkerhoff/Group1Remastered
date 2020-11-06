@@ -12,5 +12,10 @@ namespace Typing.Pages
         public void OnGet()
         {
         }
+
+        public void OnPost()
+        {
+
+        }
     }
 }

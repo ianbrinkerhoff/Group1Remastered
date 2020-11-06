@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KI+9JOs4WKQ+esO7cbbQzIW0LGuJyCbXl66xjIJ4zljImk3GRwh8YpN9D89Sa/3mflZTFkVDqquGlyN0g3aR4g==",
+  "dgSpecHash": "pFqt6TQztelJf74PiSo4fOrO3dosAbfc+sufBWLlhOaDDkUwCM5qrvbofhYCYEERsnigExieBWwH8yLZ414oAw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joeys\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\joeys\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

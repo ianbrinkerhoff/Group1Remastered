@@ -12,17 +12,16 @@ function loadList() {
             "data": "json"
         },
         "columns": [
-            { data: "player", width: "40%" },
+            { data: "userName", width: "40%" },
             { data: "score", width: "30%" },
-            {
-                data: "id",
+            {data: "id",
                 "render": function (data) {
                     return `
                         <div class="text-center">
-                            <a href="/Admin/User/Upsert?id=${data}"
+                            <a href=""
                             class="btn btn-success text-white style="cursor:pointer; width: 100px;">
-                            <i class="far fa-edit"></i>
-                            Edit 
+                            <i class="fas fa-fist-raised"></i>
+                            Challenge 
                             </a>
                             <a onClick=Delete('/api/user/'+${data})
                             class="btn btn-danger text-white style="cursor:pointer; width: 100px;">

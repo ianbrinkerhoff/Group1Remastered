@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Typing.DataAccess.Data.Repository.IRepository;
 
 /// <summary>
 /// This page will be used to generate salt for users, and store
@@ -25,8 +26,20 @@ namespace Typing.Pages
 
         public string Message => (string)TempData[nameof(Message)];
 
+        private readonly IUnitOfWork _unitOfWork;
+
+        public RegisterModel(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+        [BindProperty]
+        public Models.User UserObj { get; set; }
+
         public void OnGet()
         {
+
+            UserObj = new Models.User();
+
             if (Salt == null)
             {
                 UserStatus.loggedIn = false;
@@ -47,6 +60,7 @@ namespace Typing.Pages
                 UserStatus.currentUser = Request.Form["UserName"].ToString();
                 TempData["Name"] = Request.Form["UserName"].ToString();
 
+
             //Call function to see if username is taken, return message verifying status of username
             //checkUsername();
 
@@ -57,17 +71,26 @@ namespace Typing.Pages
         /// Posts username, hashed password, and unique user salt and updates the database
         /// </summary>
         /// <returns></returns>
-        public IActionResult OnPostTwo()
+        public IActionResult OnPost()
         {
-            string uHash = Request.Form["hashed"].ToString();
-            string uName = Request.Form["uName"].ToString();
-            string uSalt = Request.Form["uSalt"].ToString();
+            //string uHash = Request.Form["hashed"].ToString();
+            //string uName = Request.Form["uName"].ToString();
+            //string uSalt = Request.Form["uSalt"].ToString();
+
+            this.UserObj.HashedPassword = Request.Form["hashed"].ToString();
+            this.UserObj.UserName = Request.Form["uName"].ToString();
+            this.UserObj.UserSalt = Request.Form["uSalt"].ToString();
+            this.UserObj.Score = 0;
 
             //Call function to input hashed password, username, and user salt into database
             //insertUser();
 
             UserStatus.registered = true;
             UserStatus.loggedIn = true;
+
+            _unitOfWork.User.Add(UserObj);
+            _unitOfWork.Save();
+
 
             return RedirectToPage("/Game");
         }

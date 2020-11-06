@@ -29,7 +29,7 @@ namespace Typing
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSignalR();
+           // services.AddSignalR();
 
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext"),
@@ -39,7 +39,7 @@ namespace Typing
 
             //uncomment for being able to manipulate whole database localy.
             //the reason is to use API calls and program things through java on the client base
-            //services.AddMvc(Options => Options.EnableEndpointRouting = false);
+            services.AddMvc(Options => Options.EnableEndpointRouting = false);
 
         }
 
@@ -66,14 +66,14 @@ namespace Typing
 
             //uncomment for being able to manipulate whole database localy.
             //the reason is to use API calls and program things through java on the client base
-            //app.UseMvc();
+            app.UseMvc();
 
             //comment this out to use the Mvc routing 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-                endpoints.MapHub<MessageHub>("/messagehub");
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapRazorPages();
+            //    endpoints.MapHub<MessageHub>("/messagehub");
+            //});
         }
     }
 }

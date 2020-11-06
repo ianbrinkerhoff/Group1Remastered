@@ -18,6 +18,6 @@ namespace Typing.Models
 
         public  string UserSalt { get; set; }
 
-        public  string Score { get; set; }
+        public  int Score { get; set; }
     }
 }

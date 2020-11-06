@@ -14,7 +14,7 @@ namespace Typing.DataAccess.Data.Repository.IRepository
         //Get all objects IEnumerable
         IEnumerable<T> GetAll(
              Expression<Func<T, bool>> filter = null,
-             Func<IQueryable<T>, IOrderedQueryable<T>> orderBY = null,
+             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
              string includeProperties = null
             );
 

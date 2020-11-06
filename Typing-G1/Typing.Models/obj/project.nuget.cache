@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "252C2GFqnfpCiqZKp4j5xYCn0vULI/KubUSq9taBYJDAMX97prqXgPGPtvGEdkUlNwmYOZ0iY/+0jJ0TpNfNJw==",
+  "dgSpecHash": "x8uPS4SA463B5UDyxav3tEh233mHzfrWCYZBYHMRoAac21745TCM6USYdL1F8UBbIXx3XnfSa2UrxiTwrjt/5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
+  "projectFilePath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joeys\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\joeys\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

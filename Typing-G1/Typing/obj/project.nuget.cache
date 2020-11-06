@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EHuzQvA2B3lzoEFAgdfaJNqLckUTSMo+FKfd6g3XqneTXJ2xCoVoZdy4VQd8+pIM90b0+XPbVDxHtSp8Mj3/gg==",
+  "dgSpecHash": "gGUWt2tvdj1GHt2lRc3wYJLse6VW8IizcdNlTurNRj5ePdZIXNEw3OS7b58yJCqLhK1ZR5mYY+DoPfD5TF40WA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
+  "projectFilePath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing\\Typing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joeys\\.nuget\\packages\\microsoft.aspnet.signalr\\2.4.1\\microsoft.aspnet.signalr.2.4.1.nupkg.sha512",
     "C:\\Users\\joeys\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

@@ -45,10 +45,10 @@
         </form>
     </div>
     <div>
-        <form id="form2" asp-page-handler="two" method="post">
-            <input id="hashed" name="hashed" type="hidden"/>
-            <input id="uSalt" name="uSalt" type="hidden"/>
-            <input id="uName" name="uName" type="hidden"/>
+        <form id="form2" method="post" asp-action="Register">
+            <input class="form-control" id="hashed" name="hashed" type="hidden" asp-for="UserObj.HashedPassword"/>
+            <input class="form-control" id="uSalt" name="uSalt" type="hidden" asp-for="UserObj.UserSalt"/>
+            <input class="form-control" id="uName" name="uName" type="hidden" asp-for="UserObj.UserName"/>
         </form>
     </div>
 </div>

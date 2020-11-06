@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {}
+    "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {
+    "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
+        "projectUniqueName": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
         "projectName": "Typing.Models",
-        "projectPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
+        "projectPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj",
         "packagesPath": "C:\\Users\\joeys\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\obj\\",
+        "outputPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joeys\\AppData\\Roaming\\NuGet\\NuGet.Config",
