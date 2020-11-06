@@ -38,7 +38,9 @@
 @*<script src="~/js/chat.js"></script>*@
 
 <script>
-    var arr = ["BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+    var arr =
+    [
+        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "CAT", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
         "BASKETBALL", "MOUSE", "BENCH", "GRAPES", "SOCKS", "RIVER", "ZOO", "DRUM", "LIZARD", "BASKETBALL",
         "CHEESE", "PURSE", "WATER", "EYE", "COMB", "ROCK", "LEMON", "CAMERA", "JELLYFISH", "ORANGE",
         "SWING", "NOSE", "DRAGON", "BUTTERFLY", "FORK", "MOUTH", "HEAD", "MILK", "ARM", "PERSON",
@@ -76,6 +78,7 @@
             $('.wordBox').each(function () {
                 var string = $(this).text();
                 if (string == substring) {
+                    clearBold();
                     $('#tb1').val('');
                     $(this).text(arr[p2count]);
                     p2count++;
@@ -130,6 +133,18 @@
             return console.error(err.toString());
         });
     });
+
+
+    function clearBold() {
+        $.each($('#p1'), function (i, left) {
+            $('div', left).each(function () {
+                    $(this).css({
+                        'font-weight': 'normal'
+                    });
+            });
+        })
+    }
+
 </script>
 
 <script>
@@ -156,7 +171,8 @@
 
         var $div = $('#p1'),
             docWidth = $div.width(),
-            num = 0;
+            num = 0,
+            docHeight = $div.height();
             
 
         $('#user1').css({
@@ -175,11 +191,11 @@
                 $('div', left).each(function () {
                     if (num == 1) {
                         $(this).css({
-                            'color': 'orange'
+                            'color': 'black'
                         });
                     } else if (num == 2) {
                         $(this).css({
-                            'color': 'red'
+                            'color': 'black'
                         });
                         clearInterval(color);
                     }
@@ -187,18 +203,23 @@
             })
         }, 6666);
 
-
         $.each($('#p1'), function (i, left) {
+            var x = 0;
             $('div', left).each(function () {
                 $(this).css({
-                    'position': 'absolute'
+                    'position': 'absolute',
+                    'top': ((docHeight - 75) * (x / 5)) + 'px'
                 });
-
+                x++;
                 $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
 
             });
         })
     });
+
+
+
+    
 
 
 //PLAYER 2 SIDE USING ANIMATE
@@ -208,23 +229,23 @@
             fullWidth = $div.width(),
             num = 0;
 
-        var color = setInterval(function () {
-            num++;
-            $.each($('#p2'), function (i, left) {
-                $('div', left).each(function () {
-                    if (num == 1) {
-                        $(this).css({
-                            'color': 'orange'
-                        });
-                    } else if (num == 2) {
-                        $(this).css({
-                            'color': 'red'
-                        });
-                        clearInterval(color);
-                    }
-                });
-            }) 
-        }, 6666);
+        //var color = setInterval(function () {
+        //    num++;
+        //    $.each($('#p2'), function (i, left) {
+        //        $('div', left).each(function () {
+        //            if (num == 1) {
+        //                $(this).css({
+        //                    'color': 'orange'
+        //                });
+        //            } else if (num == 2) {
+        //                $(this).css({
+        //                    'color': 'red'
+        //                });
+        //                clearInterval(color);
+        //            }
+        //        });
+        //    }) 
+        //}, 6666);
 
        
         $.each($('#p2'), function (i, left) {
@@ -339,7 +360,7 @@
         height: 50px;
         width: 100px;
         margin: 5px;
-        color:green;
+        color:black;
     }
 
     #finalMsg{
