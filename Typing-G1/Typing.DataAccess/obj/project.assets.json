@@ -6224,11 +6224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
       "projectName": "Typing.DataAccess",
-      "projectPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
+      "projectPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\Typing.DataAccess.csproj",
       "packagesPath": "C:\\Users\\joeys\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joeys\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6244,8 +6244,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {
-              "projectPath": "C:\\Users\\joeys\\source\\repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj"
+            "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj": {
+              "projectPath": "C:\\Users\\joeys\\Source\\Repos\\Group1Remastered\\Typing-G1\\Typing.Models\\Typing.Models.csproj"
             }
           }
         }

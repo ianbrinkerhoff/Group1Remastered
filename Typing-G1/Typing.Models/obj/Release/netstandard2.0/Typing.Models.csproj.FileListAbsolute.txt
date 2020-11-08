@@ -1,0 +1,9 @@
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\bin\Release\netstandard2.0\Typing.Models.deps.json
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\bin\Release\netstandard2.0\Typing.Models.dll
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\bin\Release\netstandard2.0\Typing.Models.pdb
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.csprojAssemblyReference.cache
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.AssemblyInfoInputs.cache
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.AssemblyInfo.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.csproj.CoreCompileInputs.cache
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.dll
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Release\netstandard2.0\Typing.Models.pdb

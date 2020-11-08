@@ -29,7 +29,13 @@ function loadList() {
                             Delete
                             </a>
                         </div>`;
-                }, width: "30%"
+                }, width: "30%",
+                success: function (result) {
+                    alert('Successfully called');
+                },
+                error: function (jqxhr, status, exception) {
+                    alert('Exception:', exception);
+                }
             }
         ],
         "language": {

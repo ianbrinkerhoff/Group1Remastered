@@ -14,5 +14,6 @@
     <WebStackScaffolding_DbContextTypeFullName>Typing.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Controller</Controller_SelectedScaffolderCategoryPath>
+    <NameOfLastUsedPublishProfile>Typing20201108134106 - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

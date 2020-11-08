@@ -406,12 +406,23 @@ D:\Ian Brinkerhoff\Coding\Oct22\Group1Remastered\Typing-G1\Typing\obj\Debug\netc
 D:\Ian Brinkerhoff\Coding\Oct22\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.dll
 D:\Ian Brinkerhoff\Coding\Oct22\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.pdb
 D:\Ian Brinkerhoff\Coding\Oct22\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.genruntimeconfig.cache
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\User\Index.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Game.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Logout.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorTargetAssemblyInfo.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\Typing20201108134106 - Web Deploy\profile.arm.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Typing.exe
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Typing.deps.json
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\Typing.runtimeconfig.json
@@ -549,7 +560,6 @@ C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcorea
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\osx-x64\native\libe_sqlite3.dylib
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\e_sqlite3.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
@@ -570,20 +580,11 @@ C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcorea
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.TagHelpers.input.cache
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.TagHelpers.output.cache
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorCoreGenerate.cache
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Admin\User\Index.cshtml.g.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Error.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Game.cshtml.g.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Index.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Login.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Logout.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Register.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewImports.cshtml.g.cs
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\_ViewStart.cshtml.g.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorTargetAssemblyInfo.cache
-C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.RazorTargetAssemblyInfo.cs
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.Views.pdb
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.csproj.CopyComplete
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\staticwebassets\Typing.StaticWebAssets.Manifest.cache

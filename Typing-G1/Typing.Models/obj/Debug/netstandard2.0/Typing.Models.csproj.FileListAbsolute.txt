@@ -6,3 +6,4 @@ C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\n
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.csproj.CoreCompileInputs.cache
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.dll
 C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.pdb
+C:\Users\joeys\Source\Repos\Group1Remastered\Typing-G1\Typing.Models\obj\Debug\netstandard2.0\Typing.Models.csprojAssemblyReference.cache
