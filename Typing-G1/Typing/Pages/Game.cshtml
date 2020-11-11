@@ -2,53 +2,58 @@
 @model Typing.Pages.GameModel
 @{
 }
-    <div id="gameScreen">        
-        <div class="left" id="p1">
-            <h2 id="currentUser">@UserStatus.currentUser</h2>
-            <h2 id="scoreOne">0</h2>
-            <button id="startBtn" class="myButton">Start</button>
-            <div class="wordBox1 1" style="margin-top: 50px"><p id="1"></p></div>
-            <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
-            <div class="wordBox1 3" style="top:230px"><p id="3"></p></div>
-            <div class="wordBox1 4" style="top:310px"><p id="4"></p></div>
-            <div class="wordBox1 5" style="top:390px"><p id="5"></p></div>
-            <form id="user1" autocomplete="off">
-                <input type="text" name="user1" id="tb1" value="" />
-            </form>
-        </div>
-        <div class="right" id="p2">
-            <h2 id="opponent"></h2>
-            <h2 id="scoreTwo">0</h2>
-            <h3 id="waiting">Waiting on opponent...</h3>
-            <div class="wordBox 1" style="margin-top:50px"><p id="6"></p></div>
-            <div class="wordBox 2" style="top:150px"><p id="7"></p></div>
-            <div class="wordBox 3" style="top:230px"><p id="8"></p></div>
-            <div class="wordBox 4" style="top:310px"><p id="9"></p></div>
-            <div class="wordBox 5" style="top:390px"><p id="10"></p></div>
-            <form id="user2" autocomplete="off">
-                <input type="text" name="user2" id="tb2" value="" />
-            </form>
-        </div>
+<div id="gameScreen">
+    <div class="left" id="p1">
+        <h2 id="currentUser">@UserStatus.currentUser</h2>
+        <h2 id="scoreOne">0</h2>
+        <button id="startBtn" class="myButton">Start</button>
+        <h3 id="p1Final" style="visibility:collapse"></h3>
+        <div class="wordBox1 1" style="margin-top: 50px"><p id="1"></p></div>
+        <div class="wordBox1 2" style="top:150px"><p id="2"></p></div>
+        <div class="wordBox1 3" style="top:230px"><p id="3"></p></div>
+        <div class="wordBox1 4" style="top:310px"><p id="4"></p></div>
+        <div class="wordBox1 5" style="top:390px"><p id="5"></p></div>
+        <form id="user1" autocomplete="off" onkeydown="return event.key != 'Enter';">
+            <input type="text" name="user1" id="tb1" value="" />
+        </form>
     </div>
+    <div class="right" id="p2">
+        <h2 id="opponent"></h2>
+        <h2 id="scoreTwo">0</h2>
+        <h3 id="waiting">Waiting on opponent...</h3>
+        <h3 id="p2Final" style="visibility:collapse"></h3>
+        <div class="wordBox 1" style="margin-top:50px"><p id="6"></p></div>
+        <div class="wordBox 2" style="top:150px"><p id="7"></p></div>
+        <div class="wordBox 3" style="top:230px"><p id="8"></p></div>
+        <div class="wordBox 4" style="top:310px"><p id="9"></p></div>
+        <div class="wordBox 5" style="top:390px"><p id="10"></p></div>
+        <form id="user2" autocomplete="off" onkeydown="return event.key != 'Enter';">
+            <input type="text" name="user2" id="tb2" value="" readonly/>
+        </form>
+    </div>
+</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
 @*<script src="~/js/chat.js"></script>*@
 
 <script>
     var arr =
-    [
-        "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "HOCKEY", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
-        "BASKETBALL", "MOUSE", "BENCH", "GRAPES", "SOCKS", "RIVER", "ZOO", "DRUM", "LIZARD", "BASKETBALL",
-        "CHEESE", "PURSE", "WATER", "EYE", "COMB", "ROCK", "LEMON", "CAMERA", "JELLYFISH", "ORANGE",
-        "SWING", "NOSE", "DRAGON", "BUTTERFLY", "FORK", "MOUTH", "HEAD", "MILK", "ARM", "PERSON",
-        "KING", "GIRL", "WORM", "RABBIT", "BRAD", "PETERSON", "EGG", "BALLOON", "OWL", "BIRD",
-        "FLY", "FALCON", "BLUE", "GRASS", "SNOWFLAKE", "JAIL", "MOUNTAIN", "TRUCK", "FALL", "HALLOWEEN",
-        "COVER", "RACE", "TABLE", "IMAGE", "BREAD", "SLIDE", "BRIDGE", "COAT", "SHIRT", "BEAR",
-        "ANGEL", "SEA", "CLOUD", "WINDOW", "LIPS", "PILLOW", "RAINBOW", "TORNADO", "AIRPLANE", "POLICE",
+        [
+            "BASEBALL", "RACECAR", "CACTUS", "SAMURAI", "HOCKEY", "WORD", "BUG", "DINOSAUR", "COMPUTER", "TYPING",
+            "BASKETBALL", "MOUSE", "BENCH", "GRAPES", "SOCKS", "RIVER", "ZOO", "DRUM", "LIZARD", "BASKETBALL",
+            "CHEESE", "PURSE", "WATER", "EYE", "COMB", "ROCK", "LEMON", "CAMERA", "JELLYFISH", "ORANGE",
+            "SWING", "NOSE", "DRAGON", "BUTTERFLY", "FORK", "MOUTH", "HEAD", "MILK", "ARM", "PERSON",
+            "KING", "GIRL", "WORM", "RABBIT", "BRAD", "PETERSON", "EGG", "BALLOON", "OWL", "BIRD",
+            "FLY", "FALCON", "BLUE", "GRASS", "SNOWFLAKE", "JAIL", "MOUNTAIN", "TRUCK", "FALL", "HALLOWEEN",
+            "COVER", "RACE", "TABLE", "IMAGE", "BREAD", "SLIDE", "BRIDGE", "COAT", "SHIRT", "BEAR",
+            "ANGEL", "SEA", "CLOUD", "WINDOW", "LIPS", "PILLOW", "RAINBOW", "TORNADO", "AIRPLANE", "POLICE",
             "KEY", "HAMBURGER", "BONE", "MONSTER", "BOW", "ALLIGATOR", "BRACELET", "ANT", "WHALE", "TURTLE",
-        "SWIM", "APPLE", "CARROT", "BOOK", "COIN", "CUPCAKE", "PENCIL", "BOAT", "FINGER", "DOOR"
-    ];
+            "SWIM", "APPLE", "CARROT", "BOOK", "COIN", "CUPCAKE", "PENCIL", "BOAT", "FINGER", "DOOR"
+        ];
 </script>
 
 
@@ -60,6 +65,10 @@
     var msg,
         p1Score = 0,
         p2Score = 0;
+
+    $(document).on("keydown", "form", function (event) {
+        return event.key != "Enter";
+    });
 
     connection.on("ReceiveMessage", function (username, input) {
         msg = input;
@@ -98,13 +107,25 @@
                         "text-align": "right"
                     });
                     if (p2count < 10) {
-                        $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 20000, 'linear', function () { gameOverP2(); });
                     } else if (p2count < 20) {
-                        $(this).animate({ left: (docWidth - 100) + 'px' }, 17000);
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 17000, 'linear', function () { gameOverP2(); });
                     } else if (p2count < 30) {
-                        $(this).animate({ left: (docWidth - 100) + 'px' }, 15000);
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 15000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 40) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 13000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 50) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 12000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 60) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 11000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 70) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 10000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 80) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 9000, 'linear', function () { gameOverP2(); });
+                    } else if (p2count < 90) {
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 8000, 'linear', function () { gameOverP2(); });
                     } else {
-                        $(this).animate({ left: (docWidth - 100) + 'px' }, 13000);
+                        $(this).animate({ left: (docWidth - 75) + 'px' }, 7000, 'linear', function () { gameOverP2(); });
                     }
                 }
                 else if (string.startsWith(substring)) {
@@ -165,77 +186,80 @@
 <script>
 
     var p1count = 5;
-    
 
-//on click populate p's with words
-        function popP() {
-            var x = 0;
-            $("p").each(function () {
-                $(this).text(arr[x]);
-                x++;
-                if (x >= 5) {
-                    x = 0;
-                }
-            });
-        }
+
+    //on click populate p's with words
+    function popP() {
+        var x = 0;
+        $("p").each(function () {
+            $(this).text(arr[x]);
+            x++;
+            if (x >= 5) {
+                x = 0;
+            }
+        });
+    }
 
     //Register listener for Num Players
 
-//PLAYER 1 SIDE USING ANIMATE
-        function animateOne() {
-            var $div = $('#p1'),
-                docWidth = $div.width(),
-                num = 0,
-                docHeight = $div.height();
+    //PLAYER 1 SIDE USING ANIMATE
+    function animateOne() {
+        var $div = $('#p1'),
+            docWidth = $div.width(),
+            num = 0,
+            docHeight = $div.height();
 
 
-            $('#user1').css({
-                'left': (docWidth / 2) - 100 + 'px',
-                'visibility': 'visible'
-            });
+        $('#user1').css({
+            'left': (docWidth / 2) - 100 + 'px',
+            'visibility': 'visible'
+        });
 
-            $('#user2').css({
-                'left': ((docWidth / 2) + docWidth) - 100 + 'px',
-                'visibility': 'visible'
-            });
+        $('#user2').css({
+            'left': ((docWidth / 2) + docWidth) - 100 + 'px',
+            'visibility': 'visible'
+        });
 
-            $.each($('#p1'), function (i, left) {
-                var x = 0;
-                $('div', left).each(function () {
-                    $(this).css({
-                        'position': 'absolute',
-                        'top': ((docHeight) * (x / 5) + 50) + 'px'
-                    });
-                    x++;
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
-
+        $.each($('#p1'), function (i, left) {
+            var x = 0;
+            $('div', left).each(function () {
+                $(this).css({
+                    'position': 'absolute',
+                    'top': ((docHeight) * (x / 5) + 50) + 'px'
                 });
-            })
-        }
-
-
-//PLAYER 2 SIDE USING ANIMATE
-        function animateTwo() {
-            var $div = $('#gameScreen'),
-                fullWidth = $div.width(),
-                docHeight = $div.height(),
-                num = 0;
-
-            $.each($('#p2'), function (i, left) {
-                var x2 = 0;
-                $('div', left).each(function () {
-                    $(this).css({
-                        'position': 'absolute',
-                        'top': ((docHeight) * (x2 / 5) + 50) + 'px'
-                    });
-                    x2++;
-                    $(this).animate({ left: (fullWidth - 100) + 'px' }, 20000);
-
+                x++;
+                $(this).animate({ left: (docWidth - 75) + 'px' }, 20000, 'linear', function () {
+                    gameOverP1();
                 });
-            })
-        }
+            });
+        })
+    }
 
-//When player hits a key, it compares substring to words on players screen
+
+    //PLAYER 2 SIDE USING ANIMATE
+    function animateTwo() {
+        var $div = $('#gameScreen'),
+            fullWidth = $div.width(),
+            docHeight = $div.height(),
+            num = 0;
+
+        $.each($('#p2'), function (i, left) {
+            var x2 = 0;
+            $('div', left).each(function () {
+                $(this).css({
+                    'position': 'absolute',
+                    'top': ((docHeight) * (x2 / 5) + 50) + 'px'
+                });
+                x2++;
+                $(this).animate({ left: (fullWidth - 75) + 'px' }, 20000, 'linear', function () {
+                    gameOverP2();
+                });
+
+            });
+        })
+    }
+
+    //When player hits a key, it compares substring to words on players screen
     $('#tb1').keyup(function () {
         var substring = $('#tb1').val().toUpperCase();
         var $div = $('#p1'),
@@ -254,13 +278,25 @@
                     "text-align": "right"
                 });
                 if (p1count < 10) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 20000);
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 20000, 'linear', function () { gameOverP1(); });
                 } else if (p1count < 20) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 17000);
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 17000, 'linear', function () { gameOverP1(); });
                 } else if (p1count < 30) {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 15000);
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 15000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 40) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 13000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 50) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 12000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 60) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 11000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 70) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 10000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 80) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 9000, 'linear', function () { gameOverP1(); });
+                } else if (p1count < 90) {
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 8000, 'linear', function () { gameOverP1(); });
                 } else {
-                    $(this).animate({ left: (docWidth - 100) + 'px' }, 13000);
+                    $(this).animate({ left: (docWidth - 75) + 'px' }, 7000, 'linear', function () { gameOverP1(); });
                 }
             }
             else if (string.startsWith(substring)) {
@@ -276,6 +312,41 @@
         });
     });
 
+    function gameOverP1() {
+        var f1 = $('scoreOne').html();
+        $('#p1Final').html("Game Over!<br>Final score: " + p1Score);
+        $('#p1Final').css({
+            'visibility': 'visible',
+            'position': 'absolute',
+            'left': '40%',
+            'top': '40%',
+            'text-align': 'center'
+        });
+        $('.wordBox1').each(function () {
+            $("#user1").prop("disabled", true);
+            $(this).finish();
+            $(this).stop();
+        });
+        $('.left').css("background-color", "#ff9999");
+    }
+
+    function gameOverP2() {
+        var f2 = $('scoreTwo').html();
+        $('#p2Final').html("Game Over!<br>Final score: " + p2Score);
+        $('#p2Final').css({
+            'visibility': 'visible',
+            'position': 'absolute',
+            'left': '70%',
+            'top': '40%',
+            'text-align': 'center'
+        });
+        $('.wordBox').each(function () {
+            $(this).finish();
+            $(this).stop();
+        });
+        $('.right').css("background-color", "#ff6666" );
+    }
+
 </script>
 
 <style>
@@ -286,8 +357,8 @@
         float: left;
         background-color: whitesmoke;
         min-height: 100%;
-        margin:0;
-        position:absolute;
+        margin: 0;
+        position: absolute;
     }
 
     /* Control the right side */
@@ -305,7 +376,7 @@
     }
 
     body {
-        overflow:hidden;
+        overflow: hidden;
         background-color: white;
         margin: 0 auto;
         position: relative;
@@ -332,30 +403,30 @@
         text-align: left;
     }
 
-    .wordBox, .wordBox1{
+    .wordBox, .wordBox1 {
         height: 50px;
         width: auto;
         margin: 5px;
-        color:black;
+        color: black;
+        text-align: right;
     }
 
-    #finalMsg{
-        visibility:collapse;
+    #finalMsg {
+        visibility: collapse;
     }
 
-    p{
-        text-align:left;
-        margin:auto;
+    p {
+        text-align: left;
+        margin: auto;
     }
 
-    #p1, #p2{
-        
+    #p1, #p2 {
     }
 
-    #user1, #user2{
+    #user1, #user2 {
         position: absolute;
-        bottom:0px;
-        visibility:hidden;
+        bottom: 0px;
+        visibility: hidden;
     }
 
     #startBtn {
@@ -410,5 +481,4 @@
             position: relative;
             top: 1px;
         }
-
 </style>

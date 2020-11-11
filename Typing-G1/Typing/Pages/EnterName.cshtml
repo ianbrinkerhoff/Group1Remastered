@@ -1,0 +1,25 @@
+﻿@page
+@model Typing.Pages.EnterNameModel
+@{
+}
+
+<h1>Enter Username Below:</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="nameForm" method="post" name="nameForm">
+                <hr />
+                <div class="text-danger"></div>
+                <div class="form-group">
+                    <label for="Name">Username</label>
+                    <input id="UserName" name="UserName" class="form-control" value="" placeholder="Username..."/>
+                    <span for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Start Game!</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

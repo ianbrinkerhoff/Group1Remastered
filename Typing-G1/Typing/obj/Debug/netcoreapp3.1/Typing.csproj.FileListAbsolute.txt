@@ -527,3 +527,4 @@ D:\Ian Brinkerhoff\Coding\Nov5\Group1Remastered\Typing-G1\Typing\obj\Debug\netco
 D:\Ian Brinkerhoff\Coding\Nov5\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.dll
 D:\Ian Brinkerhoff\Coding\Nov5\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.pdb
 D:\Ian Brinkerhoff\Coding\Nov5\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Typing.genruntimeconfig.cache
+D:\Ian Brinkerhoff\Coding\Nov5\Group1Remastered\Typing-G1\Typing\obj\Debug\netcoreapp3.1\Razor\Pages\EnterName.cshtml.g.cs
